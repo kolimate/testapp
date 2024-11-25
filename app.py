@@ -21,9 +21,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import HuggingFaceHub
 from langchain_chroma import Chroma
 
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 4000;
+
 
 if "GROQ_API_KEY" not in os.environ:
     os.environ["GROQ_API_KEY"] = "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"
@@ -140,9 +138,6 @@ async def on_message(message: cl.Message):
     await msg.send()
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
 
 #listener = ngrok.forward(8000,authtoken="2p7uzBvkfGFll1Dbh2EWWNN1VuN_3eT5wa3ER2m4DXYpwUA1b")
 #print(f"Ingress established at {listener.url()}")
