@@ -21,32 +21,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import HuggingFaceHub
 from langchain_chroma import Chroma
 
-import socket
-import sys
 
-
-# specify Host and Port 
-HOST = '0.0.0.0' 
-PORT = 5789
-
-soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-try:
-	# With the help of bind() function 
-	# binding host and port
-	soc.bind((HOST, PORT))
-	
-except socket.error as message:
-	
-	# if any error occurs then with the 
-	# help of sys.exit() exit from the program
-	print('Bind failed. Error Code : '
-		+ str(message[0]) + ' Message '
-		+ message[1])
-	sys.exit()
-soc.listen(9)
-# print if Socket binding operation completed 
-print('Socket binding operation completed')
 
 if "GROQ_API_KEY" not in os.environ:
     os.environ["GROQ_API_KEY"] = "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"
