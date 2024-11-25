@@ -24,7 +24,8 @@ from langchain_chroma import Chroma
 
 
 if "GROQ_API_KEY" not in os.environ:
-    os.environ["GROQ_API_KEY"] = "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"
+    #os.environ["GROQ_API_KEY"] = "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"
+    print("a")
 
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
