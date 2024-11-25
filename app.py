@@ -44,7 +44,7 @@ except socket.error as message:
 		+ str(message[0]) + ' Message '
 		+ message[1])
 	sys.exit()
-	
+soc.listen(9)
 # print if Socket binding operation completed 
 print('Socket binding operation completed')
 
