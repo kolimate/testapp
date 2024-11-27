@@ -19,7 +19,7 @@ rebuild_dataclass(CodeSettings)
 
 if "GROQ_API_KEY" not in os.environ:
     #os.environ["GROQ_API_KEY"] = getpass.getpass("Enter your Groq API key: ")
-    continue
+    print("a")
 
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
