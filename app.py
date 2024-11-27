@@ -20,6 +20,10 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import HuggingFaceHub
 from langchain_chroma import Chroma
+from pydantic.dataclasses import rebuild_dataclass
+from chainlit.config import CodeSettings
+
+rebuild_dataclass(CodeSettings)
 
 
 
