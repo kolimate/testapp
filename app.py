@@ -34,13 +34,10 @@ if "GROQ_API_KEY" not in os.environ:
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
     temperature=0.4,
-    max_tokens=600,
+    max_tokens=400,
     timeout=None,
     max_retries=2,
 )
-#llm = HuggingFaceHub(repo_id="meta-llama/Llama-3.2-3B-Instruct", 
- #                    model_kwargs={"temperature": 0.4, "max_length": 200},
-  #                   huggingfacehub_api_token="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")
 
 @cl.on_chat_start
 async def on_chat_start():
