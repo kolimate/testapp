@@ -26,6 +26,17 @@ from langchain_chroma import Chroma
 if "GROQ_API_KEY" not in os.environ:
     #os.environ["GROQ_API_KEY"] = "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"
     print("a")
+    
+llm = ChatGroq(
+    model="llama-3.1-70b-versatile",
+    temperature=0.4,
+    max_tokens=600,
+    timeout=None,
+    max_retries=2,
+)
+#llm = HuggingFaceHub(repo_id="meta-llama/Llama-3.2-3B-Instruct", 
+ #                    model_kwargs={"temperature": 0.4, "max_length": 200},
+  #                   huggingfacehub_api_token="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")
 
 @cl.on_chat_start
 async def on_chat_start():
@@ -126,7 +137,3 @@ async def on_message(message: cl.Message):
         await msg.stream_token(chunk)
 
     await msg.send()
-
-#listener = ngrok.forward(8000,authtoken="2p7uzBvkfGFll1Dbh2EWWNN1VuN_3eT5wa3ER2m4DXYpwUA1b")
-#print(f"Ingress established at {listener.url()}")
-
