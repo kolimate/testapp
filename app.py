@@ -1,5 +1,5 @@
 #Developed by Group 1D - João Lourenço, Leonardo Regadas and Rodrigo Figueiredo
-#import ngrok
+
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
 from langchain.schema.runnable import Runnable
@@ -12,25 +12,15 @@ import os
 from langchain_groq import ChatGroq
 from docx import Document
 from chainlit.input_widget import Slider
-
-from langchain import hub
-from langchain_community.vectorstores import Chroma
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.llms import HuggingFaceHub
-from langchain_chroma import Chroma
 from pydantic.dataclasses import rebuild_dataclass
 from chainlit.config import CodeSettings
 
 rebuild_dataclass(CodeSettings)
 
-
-
 if "GROQ_API_KEY" not in os.environ:
-    #os.environ["GROQ_API_KEY"] = "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"
-    print("a")
-    
+    #os.environ["GROQ_API_KEY"] = getpass.getpass("Enter your Groq API key: ")
+    continue
+
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
     temperature=0.4,
@@ -138,3 +128,5 @@ async def on_message(message: cl.Message):
         await msg.stream_token(chunk)
 
     await msg.send()
+
+
