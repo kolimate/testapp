@@ -11,11 +11,7 @@ import getpass
 import os
 from langchain_groq import ChatGroq
 from docx import Document
-from chainlit.input_widget import Slider
-from pydantic.dataclasses import rebuild_dataclass
-from chainlit.config import CodeSettings
 
-rebuild_dataclass(CodeSettings)
 
 if "GROQ_API_KEY" not in os.environ:
     #os.environ["GROQ_API_KEY"] = getpass.getpass("Enter your Groq API key: ")
