@@ -70,7 +70,7 @@ async def setup_agent(settings):
 
 @cl.on_message
 async def on_message(message: cl.Message):
-   await cl.Avatar(
+    await cl.Avatar(
        name="TobIAS",
        path = "public/logo_light.png"   
        ).send()
