@@ -24,19 +24,11 @@ llm = ChatGroq(
     timeout=None,
     max_retries=2,
 )
-@cl.set_chat_profiles
-async def chat_profile():
-    return [
-        cl.ChatProfile(
-            name="TobIAS",
-            icon="/public/avatars/TobIAS.png",
-        ),
-    ]
+
 
 
 @cl.on_chat_start
 async def on_chat_start():
-    chat_profile = cl.user_session.get("chat_profile")
     model = llm
     prompt = ChatPromptTemplate.from_messages(
         [
